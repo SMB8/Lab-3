@@ -6,9 +6,12 @@ public class Sorter {
 
         int[] intArray = new int[]{10,9,8,7,6,5,4,3,2,1}; // allocating memory to array
 
-        
+        selectionSort(intArray);
         insertionSort(intArray);
         System.out.println(Arrays.toString(intArray));
+    }
+    public static void sort(int[] intArray){
+        selectionSort(intArray);
     }
 
     public static void insertionSort(int array[]) {
@@ -25,24 +28,23 @@ public class Sorter {
         }
     }
     
-    public static void selectionSort(double[] list){
-        for(int i = 0; i < list.length - 1; i++){
-            double currentMin = list[i];
-            int currentMinIndex = i;
-            
-            for(int j=i + 1; j < list.length; j++){
-                if(currentMin > list[j]){
-                currentMin = list[j];
-                currentMinIndex = j;
-                }
-            }
-            
-            if(currentMinIndex != i){
-                list[currentMinIndex] = list[i];
-                list[i] = currentMin;
+    public static void selectionSort(int[] list){
+        int n = list.length;
+    
+        // One by one move boundary of unsorted subarray
+        for (int i = 0; i < n - 1; i++) {
+            // Find the minimum element in unsorted array
+            int min_idx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (list[j] < list[min_idx])
+                    min_idx = j;
             }
     
+            // Swap the found minimum element with the first
+            // element
+            int temp = list[min_idx];
+            list[min_idx] = list[i];
+            list[i] = temp;
         }
-
-    }
+     }
 }
