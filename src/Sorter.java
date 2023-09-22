@@ -6,9 +6,12 @@ public class Sorter {
 
         int[] intArray = new int[]{10,9,8,7,6,5,4,3,2,1}; // allocating memory to array
 
-        
-        insertionSort(intArray);
+        Sort(intArray);
         System.out.println(Arrays.toString(intArray));
+    }
+
+    public static void Sort(int array[]){
+        insertionSort(array);
     }
 
     public static void insertionSort(int array[]) {
@@ -24,7 +27,7 @@ public class Sorter {
             array[i + 1] = key;
         }
     }
-    
+
     public static void selectionSort(double[] list){
         for(int i = 0; i < list.length - 1; i++){
             double currentMin = list[i];
